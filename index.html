@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta viewport ini mencegah zoom otomatis di HP agar aplikasi terasa seperti Native App -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard App</title>
+    
+    <style>
+        /* Mengambil reset dasar dari script Anda */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* Menyesuaikan ukuran persis dengan script.html Anda */
+        body, html {
+            width: 100vw;
+            height: 100dvh; /* Menggunakan dvh agar adaptif di browser mobile */
+            overflow: hidden; /* Mencegah munculnya scrollbar di luar aplikasi */
+            background-color: #0f0f13; /* Warna --body-bg dari tema gelap Anda untuk transisi mulus */
+        }
+
+        /* Memaksa iframe memenuhi 100% ruang yang tersedia */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ganti LINK_APPSCRIPT_ANDA dengan link Web App /exec Anda -->
+    <!-- Atribut allow ditambahkan untuk mendukung akses penuh jika aplikasi Anda membutuhkannya -->
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbyufbQlypipzQTMvzBL0ZTsTxsKYU3EPr5fWItPvwupBNjc7Gg6AlBGhb-S71Cjd-VM5g/exec" 
+        allow="clipboard-read; clipboard-write; fullscreen">
+    </iframe>
+</body>
+</html>
