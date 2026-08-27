@@ -2,47 +2,76 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta viewport ini mencegah zoom otomatis di HP agar aplikasi terasa seperti Native App -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <!-- TAMBAHKAN KODE INI UNTUK MENYEMBUNYIKAN BAR ALAT DI IPHONE -->
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no"
+    >
+
+    <!-- Mode aplikasi iPhone -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Dashboard App">
 
+    <!-- Warna browser/status bar -->
+    <meta name="theme-color" content="#0f0f13">
+
     <title>Dashboard App</title>
-    
+
     <style>
-        /* Mengambil reset dasar dari script Anda */
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Menyesuaikan ukuran persis dengan script.html Anda */
-        body, html {
-            width: 100vw;
-            height: 100dvh; /* Menggunakan dvh agar adaptif di browser mobile */
-            overflow: hidden; /* Mencegah munculnya scrollbar di luar aplikasi */
-            background-color: #0f0f13; /* Warna --body-bg dari tema gelap Anda untuk transisi mulus */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #0f0f13;
         }
 
-        /* Memaksa iframe memenuhi 100% ruang yang tersedia */
+        body {
+            /*
+             * Menghindari area notch dan indikator Home
+             * tanpa membuat halaman keluar dari layar.
+             */
+            padding-top: env(safe-area-inset-top);
+            padding-right: env(safe-area-inset-right);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+        }
+
+        .app-container {
+            width: 100%;
+            height: 100%;
+
+            /* Fallback untuk iPhone lama */
+            height: -webkit-fill-available;
+
+            /* Ukuran viewport modern */
+            height: 100dvh;
+            overflow: hidden;
+        }
+
         iframe {
+            display: block;
             width: 100%;
             height: 100%;
             border: none;
-            display: block;
         }
     </style>
 </head>
+
 <body>
-    <!-- Ganti LINK_APPSCRIPT_ANDA dengan link Web App /exec Anda -->
-    <!-- Atribut allow ditambahkan untuk mendukung akses penuh jika aplikasi Anda membutuhkannya -->
-    <iframe 
-        src="https://script.google.com/macros/s/AKfycbxoZOqjszW6kAxjZkudCj_D3YScyb9js9-z2G3grkQ0jKnk3LbCsVrnryTGSRtR1XRYtA/exec" 
-        allow="clipboard-read; clipboard-write; fullscreen">
-    </iframe>
+    <main class="app-container">
+        <iframe
+            src="https://script.google.com/macros/s/AKfycbxoZOqjszW6kAxjZkudCj_D3YScyb9js9-z2G3grkQ0jKnk3LbCsVrnryTGSRtR1XRYtA/exec"
+            allow="clipboard-read; clipboard-write; fullscreen"
+            allowfullscreen>
+        </iframe>
+    </main>
 </body>
 </html>
